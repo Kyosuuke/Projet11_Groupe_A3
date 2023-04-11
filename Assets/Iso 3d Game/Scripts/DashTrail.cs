@@ -9,9 +9,9 @@ using UnityEngine;
 
 public class DashTrail : MonoBehaviour
 {
-    public float activeTime = 0.5f;
-    public float meshRefreshRate = 0.1f;
-    public float meshDestroyDelay = 3f;
+    public float activeTime = 0.05f;
+    public float meshRefreshRate = 0.01f;
+    public float meshDestroyDelay = 0.5f;
     public Transform positionToSpawn;
     public Material[] mats;
     private bool isTrailActive;
