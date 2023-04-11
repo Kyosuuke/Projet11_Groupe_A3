@@ -3297,6 +3297,7 @@ GameObject:
   - component: {fileID: 5885216829670671795}
   - component: {fileID: 135756641613574975}
   - component: {fileID: 4416926083347132239}
+  - component: {fileID: 6982812147933622148}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -4176,6 +4177,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6982812147933622148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926083347132227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eea15df8e5d4294bbfa23695f542420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeTime: 0.05
+  meshRefreshRate: 0.01
+  meshDestroyDelay: 0.5
+  positionToSpawn: {fileID: 3893294199639930361}
+  mats:
+  - {fileID: 2100000, guid: 6b5ca30971b27f049a9926a78fbb9aa0, type: 2}
+  - {fileID: 2100000, guid: 6b5ca30971b27f049a9926a78fbb9aa0, type: 2}
+  - {fileID: 2100000, guid: 6b5ca30971b27f049a9926a78fbb9aa0, type: 2}
 --- !u!4 &6983258930626336602
 Transform:
   m_ObjectHideFlags: 0
