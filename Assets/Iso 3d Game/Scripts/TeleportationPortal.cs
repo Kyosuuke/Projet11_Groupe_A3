@@ -18,7 +18,6 @@ public class TeleportationPortal : MonoBehaviour
         {
             Debug.Log("je suis la");
             gameObject.transform.position = new Vector3(6, 6, 6);
-            Debug.Log(gameObject);
         }
         if (other.gameObject.name == "Quad1")
         {
@@ -26,21 +25,4 @@ public class TeleportationPortal : MonoBehaviour
             gameObject.transform.position = Teleportation.transform.position;
         }
     }
-
-    /*public GameObject projectiles;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (Input.GetButton("Fire1"))
-        {
-            ShootProjectile();
-        }
-    }
-
-    private void ShootProjectile()
-    {
-        Instantiate(projectiles);
-    }*/
 }

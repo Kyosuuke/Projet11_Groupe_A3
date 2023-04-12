@@ -450,7 +450,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 7.289999961853027,
+    "m_Value": 7.630000114440918,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -1380,7 +1380,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 9.0,
+    "m_Value": 6.829999923706055,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -1485,7 +1485,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Scale",
     "m_StageCapability": 3,
-    "m_Value": 5.0,
+    "m_Value": 4.78000020980835,
     "m_DefaultValue": 10.0,
     "m_Labels": []
 }
