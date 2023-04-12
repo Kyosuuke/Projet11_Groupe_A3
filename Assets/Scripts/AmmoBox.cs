@@ -1,19 +1,25 @@
 using Unity.VisualScripting;
 using UnityEngine.UIElements;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class AmmoBox : MonoBehaviour
 {
     private float posX;
     private float posY;
+    private float posZ;
     private float newPosY;
     private float rotaY;
     private bool Up;
+    AudioSource source;
     void Start()
     {
         posX = transform.position.x;
         posY = transform.position.y;
+        posZ = transform.position.z;
         rotaY = 0;
+
+        source = GetComponent<AudioSource>();
         //newPosY = posY + 1;
     }
 
@@ -40,11 +46,11 @@ public class AmmoBox : MonoBehaviour
     {
         if(Up)
         {
-            transform.position = new Vector2(posX, newPosY+0.005f);
+            transform.position = new Vector3(posX, newPosY+0.005f, posZ);
         }
         else
         {
-            transform.position = new Vector2(posX, newPosY - 0.005f);
+            transform.position = new Vector3(posX, newPosY - 0.005f, posZ);
         }
     }
 
@@ -55,4 +61,15 @@ public class AmmoBox : MonoBehaviour
             rotaY = 0;
         }
     }
+
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            source.Play();
+            //Destroy(gameObject);
+        }
+    }
+
 }

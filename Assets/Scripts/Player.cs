@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Player : MonoBehaviour
 
     private int _life = 100;
     private int _maxLife = 100;
+
 
     void Update()
     {
@@ -24,11 +27,28 @@ public class Player : MonoBehaviour
 
         // Shield
         if (Input.GetKeyDown(KeyCode.E))
+        {
             _shield.SetActive(!_shield.activeSelf);
-    }
+            //isActive = true;
+        }
 
+        _shield.transform.position = gameObject.transform.position;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemies")
+        {
+            UpdateLife(-10);
+        }
+    }
     public void UpdateLife(int valueToAdd)
     {
+        _life = Mathf.Clamp(_life + valueToAdd, 0, 100);
+        Debug.Log(_life);
+        if (_life == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         // clamp the life between 0 and MaxLife;
         // if life == 0
         //    Visual effect + disable the movements of the player, etc etc...
