@@ -10,9 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject _projectileToSpawn;
     [SerializeField] Transform _projectileSpawnLocation;
 
-    private int _life = 100;
-    private int _maxLife = 100;
-
+    public Material mat;
+    public int _life = 100;
+    public int _maxLife = 100;
 
     void Update()
     {
@@ -34,11 +34,18 @@ public class Player : MonoBehaviour
 
         _shield.transform.position = gameObject.transform.position;
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemies")
         {
             UpdateLife(-10);
+            StartCoroutine(TakeDamage());
+
+        if (other.gameObject.tag == "Heal")
+        {
+            StartCoroutine(Heal());
+        }
         }
     }
     public void UpdateLife(int valueToAdd)
@@ -52,5 +59,31 @@ public class Player : MonoBehaviour
         // clamp the life between 0 and MaxLife;
         // if life == 0
         //    Visual effect + disable the movements of the player, etc etc...
+    }
+
+    IEnumerator TakeDamage()
+    {
+        mat.color = Color.red;
+        mat.SetFloat("_FullscreenIntensity", 0.3f);
+        yield return new WaitForSeconds(1f);
+        mat.SetFloat("_FullscreenIntensity", 0f);
+
+        if (_life <= 30)
+        {
+            mat.color = Color.red;
+            mat.SetFloat("_FullscreenIntensity", 0.5f);
+        }
+        else
+        {
+            mat.SetFloat("_FullscreenIntensity", 0.0f);
+        }
+    }
+
+    IEnumerator Heal()
+    {
+        mat.color = Color.green;
+        mat.SetFloat("_FullscreenIntensity", 0.3f);
+        yield return new WaitForSeconds(1f);
+        mat.SetFloat("_FullscreenIntensity", 0f);
     }
 }
