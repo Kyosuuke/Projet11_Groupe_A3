@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private int _life = 100;
     private int _maxLife = 100;
 
+
     void Update()
     {
         Shader.SetGlobalVector("_WorldSpacePlayerPos", transform.position);
@@ -26,7 +27,12 @@ public class Player : MonoBehaviour
 
         // Shield
         if (Input.GetKeyDown(KeyCode.E))
+        {
             _shield.SetActive(!_shield.activeSelf);
+            //isActive = true;
+        }
+
+        _shield.transform.position = gameObject.transform.position;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -39,7 +45,7 @@ public class Player : MonoBehaviour
     {
         _life = Mathf.Clamp(_life + valueToAdd, 0, 100);
         Debug.Log(_life);
-        if(_life == 0)
+        if (_life == 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
