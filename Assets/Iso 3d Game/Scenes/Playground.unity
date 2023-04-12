@@ -3511,6 +3511,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4790621141346800799, guid: 8af84ddb343d950419cdf12f2716af11,
+        type: 3}
+      propertyPath: particleSystem
+      value: 
+      objectReference: {fileID: 1487279480}
     - target: {fileID: 5710762515029807514, guid: 8af84ddb343d950419cdf12f2716af11,
         type: 3}
       propertyPath: m_Name
@@ -4101,6 +4106,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4905026115434890, guid: d9a7f4c33b342f440bea00e67813582b,
     type: 3}
   m_PrefabInstance: {fileID: 1477017461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1487279480 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8914559753798362082, guid: 8af84ddb343d950419cdf12f2716af11,
+    type: 3}
+  m_PrefabInstance: {fileID: 1262209327}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1492637357 stripped
 Transform:
@@ -9111,7 +9122,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 65fe0b08b6bd5464787f0a3f5b67342c, type: 2}
+      objectReference: {fileID: 2100000, guid: e16f93b902e44a141bc1941eb70c9d44, type: 2}
     - target: {fileID: 941785809587344800, guid: 09aade0ecefd01e4b8f7661acf64f5c2,
         type: 3}
       propertyPath: m_LocalPosition.x

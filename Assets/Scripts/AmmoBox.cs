@@ -1,10 +1,10 @@
-using Unity.VisualScripting;
-using UnityEngine.UIElements;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
 
 public class AmmoBox : MonoBehaviour
 {
+    public ParticleSystem particleSystem;
+
     private float posX;
     private float posY;
     private float posZ;
@@ -68,7 +68,8 @@ public class AmmoBox : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             source.Play();
-            //Destroy(gameObject);
+            Destroy(particleSystem);
+            Destroy(gameObject);
         }
     }
 
