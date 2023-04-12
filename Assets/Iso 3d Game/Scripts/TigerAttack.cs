@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TigerAttack : MonoBehaviour
 {
+    public float speed = 13;
+    public float destroyDelay = 1.75f;
     public float erodeRate = 0.03f;
     public float erodeRefreshRate = 0.01f;
     public float erodeDelay = 1.25f;
@@ -13,6 +15,7 @@ public class TigerAttack : MonoBehaviour
     void Start()
     {
         StartCoroutine(ErodeObject());
+        Destroy(gameObject, destroyDelay);
     }
 
     IEnumerator ErodeObject()
