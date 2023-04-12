@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     public int _life = 100;
     public int _maxLife = 100;
 
-
     void Update()
     {
         Shader.SetGlobalVector("_WorldSpacePlayerPos", transform.position);
@@ -36,18 +35,12 @@ public class Player : MonoBehaviour
         _shield.transform.position = gameObject.transform.position;
     }
 
-    public void UpdateLife(int valueToAdd)
-    {
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemies")
         {
             UpdateLife(-10);
-
-            if (other.gameObject.tag == "Enemy")
-        {
             StartCoroutine(TakeDamage());
-        }
 
         if (other.gameObject.tag == "Heal")
         {
@@ -68,7 +61,6 @@ public class Player : MonoBehaviour
         //    Visual effect + disable the movements of the player, etc etc...
     }
 
-
     IEnumerator TakeDamage()
     {
         mat.color = Color.red;
@@ -79,7 +71,7 @@ public class Player : MonoBehaviour
         if (_life <= 30)
         {
             mat.color = Color.red;
-            mat.SetFloat("_FullscreenIntensity", 0.3f);
+            mat.SetFloat("_FullscreenIntensity", 0.5f);
         }
         else
         {
