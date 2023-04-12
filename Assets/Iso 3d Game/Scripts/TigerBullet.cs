@@ -21,33 +21,8 @@ public class TigerBullet : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time >= timeToFire)
         {
             timeToFire = Time.time + 1/fireRate;
-            ShootProjectile();
-        }
-    }
-
-    private void ShootProjectile()
-    {
-        if(cam != null)
-        {
-            Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
-            destination = ray.GetPoint(1000);
-
-            InstantiateProjectile();
-        }
-        else
-        {
             InstantiateProjectileAtFirePoint();
         }
-    }
-
-    void InstantiateProjectile()
-    {
-        var projectileObj = Instantiate(projectiles, firePoint.position, Quaternion.identity) as GameObject;
-
-        tigerAttackScript = projectileObj.GetComponent<TigerAttack>();
-        rotateToDestination(projectileObj, destination, true);
-        projectileObj.GetComponent<Rigidbody>().velocity = transform.forward * tigerAttackScript.speed;
     }
 
     void InstantiateProjectileAtFirePoint()
