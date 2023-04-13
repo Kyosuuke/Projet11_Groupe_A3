@@ -8357,6 +8357,7 @@ GameObject:
   - component: {fileID: 6982812147933622149}
   - component: {fileID: 6982812147933622151}
   - component: {fileID: 6982812147933622152}
+  - component: {fileID: 6982812147933622153}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -9421,6 +9422,28 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 3893294199639930361}
   fireRate: 4
+--- !u!114 &6982812147933622153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926083347132227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456691df109c7d04eb7aa5387cdbd16e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hastePercent: 0.5
+  lenght: 3
+  matsBuff:
+  - {fileID: 2100000, guid: c5d20a8054e4acd4a83d11d32a62d7f8, type: 2}
+  - {fileID: 2100000, guid: c5d20a8054e4acd4a83d11d32a62d7f8, type: 2}
+  - {fileID: 2100000, guid: c5d20a8054e4acd4a83d11d32a62d7f8, type: 2}
+  matsDebuff:
+  - {fileID: 2100000, guid: fc95eb01d384b3240ba33d4deaffc956, type: 2}
+  - {fileID: 2100000, guid: fc95eb01d384b3240ba33d4deaffc956, type: 2}
+  - {fileID: 2100000, guid: fc95eb01d384b3240ba33d4deaffc956, type: 2}
 --- !u!4 &6983258930626336602
 Transform:
   m_ObjectHideFlags: 0
