@@ -6,6 +6,7 @@ public class TeleportationPortal : MonoBehaviour
 {
     public GameObject Teleportation;
     public GameObject TeleportationTarget;
+    public GameObject player;
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class TeleportationPortal : MonoBehaviour
         if (other.gameObject.name == "Quad")
         {
             Debug.Log("je suis la");
-            gameObject.transform.position = new Vector3(6, 6, 6);
+            player.transform.position = new Vector3(6, 6, 6);
         }
         if (other.gameObject.name == "Quad1")
         {
