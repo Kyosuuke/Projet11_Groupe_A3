@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public int _life = 100;
     public int _maxLife = 100;
 
+
     void Update()
     {
         Shader.SetGlobalVector("_WorldSpacePlayerPos", transform.position);
