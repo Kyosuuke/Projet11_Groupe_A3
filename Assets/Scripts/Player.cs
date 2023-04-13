@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,16 +24,17 @@ public class Player : MonoBehaviour
         _armatureMesh.GetComponent<SkinnedMeshRenderer>().materials = mats;
     }
 
-    void Update()
+    async void Update()
     {
-        if(_Time > -1 && _life > 0)
+        if (_Time > -1 && _life > 0)
         {
-            
             _Time -= Time.deltaTime;
+            GetComponent<ThirdPersonController>().enabled = false;
         }
-        else if(_Time <= -1 && _life > 0)
+        else if (_Time <= -1 && _life > 0)
         {
             _armatureMesh.GetComponent<SkinnedMeshRenderer>().materials = oldMats;
+            GetComponent<ThirdPersonController>().enabled = true;
         }
         Shader.SetGlobalVector("_WorldSpacePlayerPos", transform.position);
 
@@ -44,15 +46,20 @@ public class Player : MonoBehaviour
         }
 
         _shield.transform.position = gameObject.transform.position;
-        if(_life == 0 && _Time < 0.5)
+        if (_life == 0 && _Time < 0.5)
         {
             _Time += Time.deltaTime;
+            GetComponent<Animator>().enabled = false;
+            GetComponent<ThirdPersonController>().enabled = false;
         }
-        else if(_life == 0 && _Time >= 0.5)
+        else if (_life == 0 && _Time >= 0.5)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        mats[0].SetFloat("TimeFloat", _Time);
+        foreach (Material mat in _armatureMesh.GetComponent<SkinnedMeshRenderer>().materials)
+        {
+            mat.SetFloat("_TimeFloat", _Time);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -62,10 +69,10 @@ public class Player : MonoBehaviour
             UpdateLife(-10);
             StartCoroutine(TakeDamage());
 
-        if (other.gameObject.tag == "Heal")
-        {
-            StartCoroutine(Heal());
-        }
+            if (other.gameObject.tag == "Heal")
+            {
+                StartCoroutine(Heal());
+            }
         }
     }
     public void UpdateLife(int valueToAdd)
