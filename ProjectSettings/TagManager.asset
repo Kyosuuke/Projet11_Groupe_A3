@@ -8,14 +8,16 @@ TagManager:
   - Enemies
   - Bullet
   - Heal
+  - Env
+  - Tigger
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Tigger
   - 
   - 
   - 

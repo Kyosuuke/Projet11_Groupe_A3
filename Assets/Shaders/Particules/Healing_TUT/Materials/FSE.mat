@@ -55,7 +55,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FullscreenIntensity: 0
+    - _FullscreenIntensity: 0.3
     - _QueueControl: 0
     - _QueueOffset: 0
     - _VignetteIntensity: 0.821
@@ -64,5 +64,5 @@ Material:
     - _VoronoiScale: 7.93
     - _VoronoiSpeed: 1.62
     m_Colors:
-    - _Color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
