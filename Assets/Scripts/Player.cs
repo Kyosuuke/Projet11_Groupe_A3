@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject _shield;
     [SerializeField] GameObject _projectileToSpawn;
     [SerializeField] Transform _projectileSpawnLocation;
+    public Material[] mats;
 
     private int _life = 100;
     private int _maxLife = 100;
