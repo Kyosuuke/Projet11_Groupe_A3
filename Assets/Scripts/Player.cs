@@ -7,25 +7,34 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [SerializeField] GameObject _shield;
-    [SerializeField] GameObject _projectileToSpawn;
     [SerializeField] Transform _projectileSpawnLocation;
     public Material[] mats;
-
+    public float _Time = -1;
+    [SerializeField] GameObject _armatureMesh;
+    [SerializeField] Material[] oldMats;
     public Material mat;
     public int _life = 100;
     public int _maxLife = 100;
 
 
+    private void Start()
+    {
+        _Time = 0.5f;
+        _armatureMesh.GetComponent<SkinnedMeshRenderer>().materials = mats;
+    }
+
     void Update()
     {
-        Shader.SetGlobalVector("_WorldSpacePlayerPos", transform.position);
-
-        // Projectile
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if(_Time > -1 && _life > 0)
         {
-            GameObject clone = Instantiate(_projectileToSpawn, _projectileSpawnLocation.transform.position, Quaternion.identity);
-            clone.transform.forward = transform.forward;
+            
+            _Time -= Time.deltaTime;
         }
+        else if(_Time <= -1 && _life > 0)
+        {
+            _armatureMesh.GetComponent<SkinnedMeshRenderer>().materials = oldMats;
+        }
+        Shader.SetGlobalVector("_WorldSpacePlayerPos", transform.position);
 
         // Shield
         if (Input.GetKeyDown(KeyCode.E))
@@ -35,6 +44,15 @@ public class Player : MonoBehaviour
         }
 
         _shield.transform.position = gameObject.transform.position;
+        if(_life == 0 && _Time < 0.5)
+        {
+            _Time += Time.deltaTime;
+        }
+        else if(_life == 0 && _Time >= 0.5)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        mats[0].SetFloat("TimeFloat", _Time);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -56,7 +74,8 @@ public class Player : MonoBehaviour
         Debug.Log(_life);
         if (_life == 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            _armatureMesh.GetComponent<SkinnedMeshRenderer>().materials = mats;
+            _Time = -1;
         }
         // clamp the life between 0 and MaxLife;
         // if life == 0
