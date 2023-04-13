@@ -4663,6 +4663,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shield
       objectReference: {fileID: 0}
+    - target: {fileID: 7273640013111925448, guid: 31f5770541bdbdf42af3fccdd24e92e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7738178142274130422, guid: 31f5770541bdbdf42af3fccdd24e92e5,
         type: 3}
       propertyPath: m_RootOrder
@@ -8674,6 +8679,7 @@ MonoBehaviour:
   _shield: {fileID: 410258210}
   _projectileToSpawn: {fileID: 0}
   _projectileSpawnLocation: {fileID: 0}
+  mats: []
   mat: {fileID: 2100000, guid: e8e6c8d1050bbe44cb5690e7bbae7c46, type: 2}
   _life: 100
   _maxLife: 100
