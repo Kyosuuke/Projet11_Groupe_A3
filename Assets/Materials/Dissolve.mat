@@ -42,7 +42,7 @@ Material:
     - _Noise_Scale: 2.89
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _TimeFloat: 0.55
+    - _TimeFloat: 0.5
     - _Voronoi_AngleOffset: 0
     m_Colors:
     - _Color: {r: 0, g: 16.88427, b: 19.698313, a: 0}
