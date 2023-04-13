@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2683172607702026723
+--- !u!114 &-703992497558654288
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,14 +20,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Test
-  m_Shader: {fileID: -6465566751694194690, guid: 48dfe2db82c894b49861efb5628c75f9,
+  m_Name: Buff
+  m_Shader: {fileID: -6465566751694194690, guid: 79b979b43300d9247b94d0c444b7653b,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -37,8 +37,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 00766d4d024f26740ac7fd99407c8806, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -55,14 +55,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FullscreenIntensity: 0
+    - _BlinkingSpeed: 10
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _VignetteIntensity: 0.821
-    - _VignettePower: 2.9
-    - _VignetteRadiusPower: 5.8
-    - _VoronoiScale: 7.93
-    - _VoronoiSpeed: 1.62
+    - _ScrollingSpeed: -4
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Tint: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
