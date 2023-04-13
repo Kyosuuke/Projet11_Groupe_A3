@@ -1,21 +1,25 @@
-using Unity.VisualScripting;
-using UnityEngine.UIElements;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class AmmoBox : MonoBehaviour
 {
+    public ParticleSystem particleSystem;
+
     private float posX;
     private float posY;
     private float posZ;
     private float newPosY;
     private float rotaY;
     private bool Up;
+    AudioSource source;
     void Start()
     {
         posX = transform.position.x;
         posY = transform.position.y;
         posZ = transform.position.z;
         rotaY = 0;
+
+        source = GetComponent<AudioSource>();
         //newPosY = posY + 1;
     }
 
@@ -63,6 +67,8 @@ public class AmmoBox : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            source.Play();
+            Destroy(particleSystem);
             Destroy(gameObject);
         }
     }
