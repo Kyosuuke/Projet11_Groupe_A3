@@ -9391,9 +9391,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shield: {fileID: 410258210}
-  _projectileToSpawn: {fileID: 0}
-  _projectileSpawnLocation: {fileID: 0}
-  mats: []
+  _projectileSpawnLocation: {fileID: 6392546783009048267}
+  mats:
+  - {fileID: 2100000, guid: 37aa04f3538018247ac7b819b65a2143, type: 2}
+  - {fileID: 2100000, guid: 37aa04f3538018247ac7b819b65a2143, type: 2}
+  - {fileID: 2100000, guid: 37aa04f3538018247ac7b819b65a2143, type: 2}
+  _Time: 0
+  _armatureMesh: {fileID: 8187455077504354063}
+  oldMats:
+  - {fileID: 2100000, guid: 43714b68324cc2c409d534d9874f2a2b, type: 2}
+  - {fileID: 2100000, guid: 766fd3ff04aab4745a764d33daac86fa, type: 2}
+  - {fileID: 2100000, guid: 8b25e99361ac31d4e9ae83c46aee69ea, type: 2}
   mat: {fileID: 2100000, guid: e8e6c8d1050bbe44cb5690e7bbae7c46, type: 2}
   _life: 100
   _maxLife: 100
