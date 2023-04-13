@@ -38,16 +38,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BottomLine: 1
+    - _BottomLine: 0.54
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothnees: 0
-    - _TopLine: 0.65
+    - _Smoothnees: 1
+    - _TopLine: 0.41
     m_Colors:
     - _BaseColor: {r: 3.7262433, g: 3.309121, b: 1.0370206, a: 0}
-    - _BottomColor: {r: 0.6822818, g: 0.20838495, b: 0.11907748, a: 1}
-    - _TopColor: {r: 0.68278784, g: 0.32625955, b: 0.18357974, a: 0}
+    - _BottomColor: {r: 1.5157166, g: 0.10971786, b: 0, a: 1}
+    - _TopColor: {r: 2.6390157, g: 1.4887618, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4596823575798752554
 MonoBehaviour:

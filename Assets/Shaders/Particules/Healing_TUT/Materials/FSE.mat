@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Test
+  m_Name: FSE
   m_Shader: {fileID: -6465566751694194690, guid: 48dfe2db82c894b49861efb5628c75f9,
     type: 3}
   m_Parent: {fileID: 0}
@@ -64,5 +64,5 @@ Material:
     - _VoronoiScale: 7.93
     - _VoronoiSpeed: 1.62
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   m_BuildTextureStacks: []

@@ -1,26 +1,23 @@
 using UnityEngine;
+using System.Collections;
+
 
 public class Electrified : MonoBehaviour
 {
-    public Material Mat;
+    public Player _player;
+    public MeshRenderer _enemy;
 
-    public SkinnedMeshRenderer _player;
-
-    private void Start() 
+    private void Start()
     {
-        _player = GetComponentInChildren<SkinnedMeshRenderer>();
+        
     }
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-           _player.material = Mat;
-        }
-
-        if (other.gameObject.tag == "Enemy")
-        {
-            
+            _player._life -= 5;
         }
     }
 }
+

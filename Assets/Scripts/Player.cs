@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Material[] mats;
     public Material[] matsBuff;
     public Material[] matsDebuff;
+    public Material[] matsElec;
     public float hastePercent = 0.5f;
     public float lenght = 3f;
     private float cooldown = 0f;
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
             GetComponentInChildren<SkinnedMeshRenderer>().materials = matsDebuff;
         }
 
+        // Dissolve
         if (_Time > -1 && _life > 0)
         {
             _Time -= Time.deltaTime;
@@ -78,6 +80,7 @@ public class Player : MonoBehaviour
         }
         else if (_life == 0 && _Time >= 0.5)
         {
+            mat.SetFloat("_FullscreenIntensity", 0f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         foreach (Material mat in _armatureMesh.GetComponent<SkinnedMeshRenderer>().materials)
@@ -92,22 +95,31 @@ public class Player : MonoBehaviour
         {
             UpdateLife(-10);
             StartCoroutine(TakeDamage());
-
-            if (other.gameObject.tag == "Heal")
-            {
-                StartCoroutine(Heal());
-            }
         }
+
+        if (other.gameObject.tag == "Heal")
+        {
+            StartCoroutine(Heal());
+        }
+
+        if (other.gameObject.tag == "Env")
+        {
+            StartCoroutine(Electrocuted());
+
+            if (mat.color == Color.yellow)
+            {
+                GetComponentInChildren<SkinnedMeshRenderer>().materials = matsElec;
+            }
+            else
+            {
+                _armatureMesh.GetComponent<SkinnedMeshRenderer>().materials = oldMats;
+            }
+        } 
     }
     public void UpdateLife(int valueToAdd)
     {
         _life = Mathf.Clamp(_life + valueToAdd, 0, 100);
         Debug.Log(_life);
-        if (_life == 0)
-        {
-            _armatureMesh.GetComponent<SkinnedMeshRenderer>().materials = mats;
-            _Time = -1;
-        }
         // clamp the life between 0 and MaxLife;
         // if life == 0
         //    Visual effect + disable the movements of the player, etc etc...
@@ -119,6 +131,7 @@ public class Player : MonoBehaviour
         mat.SetFloat("_FullscreenIntensity", 0.3f);
         yield return new WaitForSeconds(1f);
         mat.SetFloat("_FullscreenIntensity", 0f);
+
 
         if (_life <= 30)
         {
@@ -137,5 +150,20 @@ public class Player : MonoBehaviour
         mat.SetFloat("_FullscreenIntensity", 0.3f);
         yield return new WaitForSeconds(1f);
         mat.SetFloat("_FullscreenIntensity", 0f);
+
+
+        if (_life > 100)
+        {
+            _life = 100;
+        }
     }
+
+    IEnumerator Electrocuted()
+    {
+        mat.color = Color.yellow;
+        mat.SetFloat("_FullscreenIntensity", 0.3f);
+        yield return new WaitForSeconds(1f);
+        mat.SetFloat("_FullscreenIntensity", 0f);
+    }
+
 }
