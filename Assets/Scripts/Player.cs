@@ -10,6 +10,12 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject _shield;
     [SerializeField] Transform _projectileSpawnLocation;
     public Material[] mats;
+    public Material[] matsBuff;
+    public Material[] matsDebuff;
+    public float hastePercent = 0.5f;
+    public float lenght = 3f;
+    private float cooldown = 0f;
+    private float fr;
     public float _Time = -1;
     [SerializeField] GameObject _armatureMesh;
     [SerializeField] Material[] oldMats;
@@ -21,18 +27,36 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _Time = 0.5f;
+        fr = gameObject.GetComponent<TigerBullet>().fireRate;
         _armatureMesh.GetComponent<SkinnedMeshRenderer>().materials = mats;
     }
 
     async void Update()
     {
+        // Buff & Debuff
+        if (Input.GetKeyDown(KeyCode.B) && Time.time > cooldown)
+        {
+            fr = gameObject.GetComponent<TigerBullet>().fireRate;
+            gameObject.GetComponent<TigerBullet>().fireRate += fr * hastePercent;
+            cooldown = Time.time + lenght;
+            GetComponentInChildren<SkinnedMeshRenderer>().materials = matsBuff;
+        }
+        if (Input.GetKeyDown(KeyCode.V) && Time.time > cooldown)
+        {
+            fr = gameObject.GetComponent<TigerBullet>().fireRate;
+            gameObject.GetComponent<TigerBullet>().fireRate = fr * hastePercent;
+            cooldown = Time.time + lenght;
+            GetComponentInChildren<SkinnedMeshRenderer>().materials = matsDebuff;
+        }
+
         if (_Time > -1 && _life > 0)
         {
             _Time -= Time.deltaTime;
             GetComponent<ThirdPersonController>().enabled = false;
         }
-        else if (_Time <= -1 && _life > 0)
+        else if (_Time <= -1 && _life > 0 && Time.time > cooldown)
         {
+            gameObject.GetComponent<TigerBullet>().fireRate = fr;
             _armatureMesh.GetComponent<SkinnedMeshRenderer>().materials = oldMats;
             GetComponent<ThirdPersonController>().enabled = true;
         }
